@@ -7,7 +7,7 @@
     $old_name = $_FILES["photoUpload"]["name"];
     $extension = pathinfo($old_name, PATHINFO_EXTENSION);
     $time = time();
-    $new_name = md5($time + $_FILES["photoUpload"]["name"]);
+    $new_name = md5($time);
     $_FILES["photoUpload"]["name"] = $new_name;
     if (is_uploaded_file($_FILES["photoUpload"]["tmp_name"]))
     {
