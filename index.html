@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-	<meta charset="UTF-8">
-	<title>Загрузка фото</title>
-	<link rel="stylesheet" href="css/main.css">
+  <meta charset="UTF-8">
+  <title>Загрузка фото</title>
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-	<div class="upload">
-	<h1 class="title">Поделиться фото</h1>
-		<form action="php/upload.php" method="POST" enctype=multipart/form-data>
-			<input type="text" class="photoTitle" placeholder="Название фото" />
-			<br/>
-			<textarea class="photoDescription" placeholder="Описание фото" rows="10" cols="44" maxlength="140"></textarea>
-			<br/>
-			<input type="file" class="photoUpload" name="photoUpload" accept="image/jpeg,image/png"/>
-			<br/>
-			<input type="submit" class="sumbitBotton" value="Отправить"/> 
-		</form>
-	</div>
+  <div class="upload">
+    <h1 class="title">Поделиться фото</h1>
+    <form action="php/upload.php" method="POST" enctype=multipart/form-data>
+        <input type="text" class="photoTitle" name="photoTitle" placeholder="Название фото" />
+        <br/>
+        <textarea class="photoDescription" name="photoDescription" placeholder="Описание фото" rows="10" cols="44" maxlength="140"></textarea>
+        <br/>
+        <input type="file" class="photoUpload" name="photoUpload" accept="image/jpeg,image/png"/>
+        <br/>
+        <input type="submit" class="sumbitBotton" value="Отправить"/> 
+    </form>
+  </div>
 </body>
 </html>

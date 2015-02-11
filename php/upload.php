@@ -1,21 +1,43 @@
 <?php
-    if ($_FILES["photoUpload"]["size"] > 1024*3*1024)
+    function saveImageInDataBase()
     {
-        echo ("Размер файла превышает три мегабайта");
+        
+    };
+    require_once "config.php";
+    require_once "const.php";
+    require_once "textConst.php";
+    $photoName = $_FILES["photoUpload"]["name"];
+    $photoTitle = $_POST['photoTitle'];
+    $photoDescription = $_POST['photoDescription'];
+    $tplPhotoName = $_FILES["photoUpload"]["tmp_name"];
+    if ($_FILES["photoUpload"]["size"] > MAX_FILE_SIZE)
+    {
+        echo (MAX_FILE_ECHO);
         exit;
     };
-    $old_name = $_FILES["photoUpload"]["name"];
-    $extension = pathinfo($old_name, PATHINFO_EXTENSION);
-    $time = time();
-    $new_name = md5($time);
-    $_FILES["photoUpload"]["name"] = $new_name;
-    if (is_uploaded_file($_FILES["photoUpload"]["tmp_name"]))
+    $old_name = $photoName;
+    $extension = "." . pathinfo($old_name, PATHINFO_EXTENSION);
+    $new_name = md5(time() + $photoName);
+    $photoName = $new_name . $extension;
+
+    if (is_uploaded_file($tplPhotoName))
     {
-        move_uploaded_file($_FILES["photoUpload"]["tmp_name"], "upload/".$_FILES["photoUpload"]["name"]);
-        echo ("Файл загружен");
+        move_uploaded_file($tplPhotoName, PHOTO_LOACTION . $photoName);
+        echo (FILE_UPLOAD_SUCCESS);
     } 
     else 
     {
-        echo("Ошибка загрузки файла");
-    }  
+        echo(FILE_UPLOAD_FAILED);
+    };
+
+    $sql = "INSERT INTO photos (photoTitle, photoDescription, photoName) VALUES ('$photoTitle', '$photoDescription', '$photoName')";
+    if (mysqli_query($db, $sql)) 
+    {
+        echo "New record created successfully";
+    } 
+    else 
+    {
+        echo "Error: " . $sql . "<br>" . mysqli_error($db);
+    }
+    mysqli_close($db);
 ?>
