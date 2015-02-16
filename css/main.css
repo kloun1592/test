@@ -76,3 +76,63 @@
     -moz-box-shadow: 10px 12px 5px -5px rgba(0,0,0,0.75);
     box-shadow: 10px 12px 5px -5px rgba(0,0,0,0.75);
 }
+.waitingModeration
+{
+    margin-left: 5%;
+}
+.waitingPhotoBlock
+{
+    width: 200px;
+    height: 200px;
+    border: 2px solid #000000;
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-right: 3%;
+    display: inline-block;
+}
+.waitingPhotoImg
+{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    margin-top: 1%;
+    margin-left: 3%;    
+}
+.waitingPhotoSpan
+{
+    margin-top: 9%;
+    margin-left: 5%;
+    position: absolute;
+}
+.waitingPhotoLike
+{
+    margin-top: 11%;
+    margin-left: 4%;
+    position: absolute;  
+}
+.waitingPhotoDislike
+{
+    margin-top: 11%;
+    margin-left: 10%;
+    position: absolute;
+}
+label
+{
+    position: absolute;  
+}
+.waitingPhotoLikeLabel
+{
+    margin-top: 10.7%;
+    margin-left: 2%;
+}
+.waitingPhotoDislikeLabel
+{
+    margin-top: 10.7%;
+    margin-left: 6%;
+}
+.waitingPhotoSubmit
+{
+    position: absolute;
+    margin-top: 12%;
+    margin-left: 4%;
+}
