@@ -83,7 +83,7 @@
 .waitingPhotoBlock
 {
     width: 200px;
-    height: 200px;
+    height: 250px;
     border: 2px solid #000000;
     margin-left: 5%;
     margin-top: 5%;
@@ -133,6 +133,17 @@ label
 .waitingPhotoSubmit
 {
     position: absolute;
+    margin-top: 13%;
+    margin-left: 3%;
+}
+.waitingPhotoId
+{
+    width: 14px;
+    height: 10px;
+}
+.waitingPhotoDescription
+{
+    position: absolute;
     margin-top: 12%;
-    margin-left: 4%;
+    margin-left: 2%;
 }
