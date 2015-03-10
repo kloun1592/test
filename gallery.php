@@ -6,7 +6,6 @@
         die('Connect Error (' . mysqli_connect_errno() . ') '
         . mysqli_connect_error());
     };
-    /*Делаем запрос к БД*/
     $sql = "SELECT * FROM photos WHERE status = '1' ";
     $result = mysqli_query($link, $sql);
 ?>
@@ -19,12 +18,12 @@
 </head>
 <body>     
   <h1 class="waitingModeration">Галерея Йошкар-Олы</h1>
-  <?php while($myrow = mysqli_fetch_array($result)): ?>
+  <? while($myrow = mysqli_fetch_array($result)): ?>
       <div class="waitingPhotoBlock">
           <img class="waitingPhotoImg" src="upload/<?= $myrow['photoName'];?>">
           <span class="waitingPhotoSpan"><?= $myrow['photoTitle'];?></span>
           <span class="waitingPhotoDescription">Описание: <?= $myrow['photoDescription'];?></span>
       </div>
-  <?php endwhile; ?>
+  <? endwhile; ?>
 </body>
 </html>

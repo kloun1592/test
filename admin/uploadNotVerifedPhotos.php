@@ -3,11 +3,10 @@
     $link = mysqli_connect(DBHOST, DBUSER, DBPASS, DBNAME);
     if (!$link) 
     {
-        die('Connect Error (' . mysqli_connect_errno() . ') '
+        die('Ошибка соединения (' . mysqli_connect_errno() . ') '
         . mysqli_connect_error());
     };
-    /*Делаем запрос к БД*/
-    $sql = "SELECT * FROM photos";
+    $sql = "SELECT * FROM photos WHERE status = '0' ";
     $result = mysqli_query($link, $sql);
 ?>
 <!DOCTYPE html>
@@ -19,7 +18,7 @@
 </head>
 <body>     
   <h1 class="waitingModeration">Ожидает модерации</h1>
-  <?php while($myrow = mysqli_fetch_array($result)): ?>
+  <? while($myrow = mysqli_fetch_array($result)): ?>
       <div class="waitingPhotoBlock">
         <form action="adminCkeckPhotos.php" method="POST">
           <img class="waitingPhotoImg" src="../upload/<?= $myrow['photoName'];?>">
@@ -32,6 +31,6 @@
           <input class="waitingPhotoSubmit" type="submit"/>
         </form>
       </div>
-  <?php endwhile; ?>
+  <? endwhile; ?>
 </body>
 </html>
