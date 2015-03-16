@@ -1,5 +1,5 @@
 <?php
-    require_once '../php/connectDB.php';
+    require_once 'database/dbConnectionConst.php';
     $link = mysqli_connect(DBHOST, DBUSER, DBPASS, DBNAME);
     if (!$link) 
     {
@@ -14,14 +14,14 @@
 <head>
   <meta charset="UTF-8"/>
   <title>Профиль админа</title>
-  <link rel="stylesheet" href="../css/main.css"/>
+  <link rel="stylesheet" href="web/main.css"/>
 </head>
 <body>     
   <h1 class="waitingModeration">Ожидает модерации</h1>
   <? while($myrow = mysqli_fetch_array($result)): ?>
       <div class="waitingPhotoBlock">
-        <form action="adminCkeckPhotos.php" method="POST">
-          <img class="waitingPhotoImg" src="../upload/<?= $myrow['photoName'];?>">
+        <form action="engine/admin_handler.php" method="POST">
+          <img class="waitingPhotoImg" src="../web/upload/<?= $myrow['photoName'];?>">
           <span class="waitingPhotoSpan" name="waitingPhotoName"><?= $myrow['photoTitle'];?></span>
           <input class="waitingPhotoLike" name="waitingPhotoInput" id="waitingPhotoLike" type="radio" value="1" />
           <label class="waitingPhotoLikeLabel" for="waitingPhotoLike">like</label>
