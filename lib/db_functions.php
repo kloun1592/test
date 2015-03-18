@@ -5,15 +5,17 @@
         $sql = "INSERT INTO photos (photoTitle, photoDescription, photoName) VALUES ( '$photoTitle', '$photoDescription', '$photoName')";
         if (mysqli_query($db, $sql)) 
         {
-            echo "";
+            $goodResult = '';
+            return $goodResult;
         } 
         else 
         {
-            echo "  Не получилось добавить фотографию в базу данных. Попробуйте загрузить фотографию позже. Error: " . $sql . "<br/>" . mysqli_error($db);
+            $badResult = '  Не получилось добавить фотографию в базу данных. Попробуйте загрузить фотографию позже. Ошибка: ' . $sql . '<br/>' . mysqli_error($db);
+            return $badResult;
         };
         mysqli_close($db);
     };
-    function checkValue()
+    function checkPhotoValueInAdmin()
     {
         $value = $_POST['waitingPhotoInput'];
         $photoId = $_POST['waitingPhotoId'];

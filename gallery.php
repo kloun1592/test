@@ -1,9 +1,9 @@
 <?php
-    require_once 'database/dbConnectionConst.php';
+    require_once 'const/db_connection_const.php';
     $link = mysqli_connect(DBHOST, DBUSER, DBPASS, DBNAME);
     if (!$link)
     {
-        die('Connect Error (' . mysqli_connect_errno() . ') '
+        die('Ошибка соединения (' . mysqli_connect_errno() . ') '
         . mysqli_connect_error());
     };
     $sql = "SELECT * FROM photos WHERE status = '1' ";

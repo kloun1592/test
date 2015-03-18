@@ -1,5 +1,5 @@
 <?php
-    require_once 'database/dbConnectionConst.php';
+    require_once 'const/db_connection_const.php';
     $link = mysqli_connect(DBHOST, DBUSER, DBPASS, DBNAME);
     if (!$link) 
     {

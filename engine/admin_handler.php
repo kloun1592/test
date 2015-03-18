@@ -1,8 +1,9 @@
 <?php
-	require_once '../database/dbFunctions.php';
-    require_once '../database/dbConnectionConst.php';
-    require_once '../const/textConst.php';
-    require_once '../const/numberConst.php';
-    require_once '../const/errorConst.php';
-    header('Refresh: ' . REDIRECT_TIME . '; url=../uploadNotVerifedPhotos.php');
-	checkValue();
+	require_once '../lib/db_functions.php';
+	require_once '../lib/extra_fucntions.php';
+    require_once '../const/db_connection_const.php';
+    require_once '../const/text_const.php';
+    require_once '../const/number_const.php';
+    require_once '../const/error_const.php';
+    callHeaderInAdminHandler();
+	checkPhotoValueInAdmin();
