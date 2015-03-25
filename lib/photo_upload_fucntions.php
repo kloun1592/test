@@ -14,7 +14,7 @@
             $photoDescription = $_POST['photoDescription'];
             $db = @mysqli_connect(DBHOST, DBUSER, DBPASS, DBNAME) or die("Нет подключения к БД");
             mysqli_set_charset($db, "utf8") or die("Не установлена кодировка соединения");
-            savePhotoInDB($db, $photoTitle, $photoDescription, $photoName);
+            echo savePhotoInDB($db, $photoTitle, $photoDescription, $photoName);
         } 
         else 
         {
@@ -26,19 +26,19 @@
         $photoError = $_FILES["photoUpload"]["error"] ;
         switch ($photoError) 
         {
-            case SEARCH_PHOTO_ERROR_CASE_NUM_3:
+            case 3:
                 CallHeaderInUploadFormHandlerWithBadStatus3();
                 break;
-            case SEARCH_PHOTO_ERROR_CASE_NUM_4:
+            case 4:
                 CallHeaderInUploadFormHandlerWithBadStatus4();
                 break;
-            case SEARCH_PHOTO_ERROR_CASE_NUM_6:
+            case 6:
                 CallHeaderInUploadFormHandlerWithBadStatus6();
                 break;
-            case SEARCH_PHOTO_ERROR_CASE_NUM_7:
+            case 7:
                 CallHeaderInUploadFormHandlerWithBadStatus7();
                 break;
-            case SEARCH_PHOTO_ERROR_CASE_NUM_8:
+            case 8:
                 CallHeaderInUploadFormHandlerWithBadStatus8();
                 break;
             default:
@@ -47,6 +47,11 @@
         };
         exit;
     };
+    function tryShowUploadingStatus()
+    {
+        $status = ((empty($_GET['status'])) ? null : $_GET['status']);
+        return $status;
+    };
     function checkValueInGetArray()
     {
         $h1GoodResultBegin = '<h1 class="resultGood">';
@@ -54,33 +59,33 @@
         $h1BadResultBegin = '<h1 class="resultBad">';
         switch ($_GET['status']) 
         {
-            case CHECK_VALUE_IN_GET_ARRAY_CASE_NUM_0:
+            case 0:
                 $goodResult = '';
                 return $goodResult;
                 break;
-            case CHECK_VALUE_IN_GET_ARRAY_CASE_NUM_1:
-                $goodResult = $h1GoodResultBegin . FILE_UPLOAD_SUCCESS . $h1End;
-                return $goodResult;
+            case 1:
+                $result = '<h1 class="resultGood">' . FILE_UPLOAD_SUCCESS . '</h1>';
                 break;
-            case CHECK_VALUE_IN_GET_ARRAY_CASE_NUM_2:
+            case 2:
                 echo '<h1 class="resultBad">' . FILE_UPLOAD_FAILED . '</h1>';
                 break;
-            case CHECK_VALUE_IN_GET_ARRAY_CASE_NUM_3:
+            case 3:
                 echo '<h1 class="resultBad">' . ERROR_NUM3 . '</h1>';
                 break;
-            case CHECK_VALUE_IN_GET_ARRAY_CASE_NUM_4:
+            case 4:
                 echo '<h1 class="resultBad">' . ERROR_NUM4 . '</h1>';
                 break;
-            case CHECK_VALUE_IN_GET_ARRAY_CASE_NUM_6:
+            case 6:
                 echo '<h1 class="resultBad">' . ERROR_NUM6 . '</h1>';
                 break;
-            case CHECK_VALUE_IN_GET_ARRAY_CASE_NUM_7:
+            case 7:
                 echo '<h1 class="resultBad">' . ERROR_NUM7 . '</h1>';
                 break;
-            case CHECK_VALUE_IN_GET_ARRAY_CASE_NUM_8:
+            case 8:
                 echo '<h1 class="resultBad">' . ERROR_NUM8 . '</h1>';
                 break;
             default:
                 echo '<h1 class="resultBad">' . UNKNOW_ERROR . '</h1>'; 
         };
+        return $result;
     };

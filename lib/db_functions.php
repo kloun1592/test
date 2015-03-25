@@ -5,14 +5,13 @@
         $sql = "INSERT INTO photos (photoTitle, photoDescription, photoName) VALUES ( '$photoTitle', '$photoDescription', '$photoName')";
         if (mysqli_query($db, $sql)) 
         {
-            $goodResult = '';
-            return $goodResult;
+            $result = '';
         } 
         else 
         {
-            $badResult = '  Не получилось добавить фотографию в базу данных. Попробуйте загрузить фотографию позже. Ошибка: ' . $sql . '<br/>' . mysqli_error($db);
-            return $badResult;
+            $result = '  Не получилось добавить фотографию в базу данных. Попробуйте загрузить фотографию позже. Ошибка: ' . $sql . '<br/>' . mysqli_error($db);
         };
+        return $result;
         mysqli_close($db);
     };
     function checkPhotoValueInAdmin()
@@ -23,16 +22,16 @@
         if ($value == "1") 
         {
             $sql = "UPDATE photos SET status = '1' WHERE id = '$photoId' ";
-            echo "Фотография успешно добавлена!";
+            $result = "Фотография успешно добавлена!";
         }
         elseif ($value == "0") 
         {
             $sql = "DELETE FROM photos WHERE id = '$photoId'";
-            echo "Фотография успешно удалена!";
+            $result = "Фотография успешно удалена!";
         }
         else
         {
-            echo "something went wrong....";
+            $result = "something went wrong....";
         };
         if (mysqli_query($db, $sql)) 
         {
@@ -43,4 +42,5 @@
             echo "Хотя....   Error: " . $sql . "<br/>" . mysqli_error($db);
         }
         mysqli_close($db);
+        return $result;
     };

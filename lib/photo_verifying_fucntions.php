@@ -12,34 +12,29 @@
     function isValidFileType()
     {
         $photoType = $_FILES["photoUpload"]["type"] ;
-        $result = 0;
         switch ($photoType) 
         {
             case 'image/jpeg':
                 header('Refresh: ' . REDIRECT_TIME . '; url=../index.php');
                 $result = 1;
-                return $result;
                 break;
             case 'image/jpg':
                 header('Refresh: ' . REDIRECT_TIME . '; url=../index.php');
                 $result = 1;
-                return $result;
                 break;
             case 'image/bmp':
                 header('Refresh: ' . REDIRECT_TIME . '; url=../index.php');
                 $result = 1;
-                return $result;
                 break;
             case 'image/png':
                 header('Refresh: ' . REDIRECT_TIME . '; url=../index.php');
                 $result = 1;
-                return $result;
                 break;
             default:
                 $result = 0;
-                return $result;
                 $badPhotoType = "тип фото не поддерживается";
                 echo $badPhotoType;
                 exit;
         };
+        return $result;
     };

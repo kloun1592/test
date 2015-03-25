@@ -5,5 +5,5 @@
     require_once '../const/text_const.php';
     require_once '../const/number_const.php';
     require_once '../const/error_const.php';
-    callHeaderInAdminHandler();
-	checkPhotoValueInAdmin();
+    CallHeaderInAdminHandler();
+	echo checkPhotoValueInAdmin();
