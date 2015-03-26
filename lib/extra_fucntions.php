@@ -1,37 +1,37 @@
 <?php
-	function CallHeaderInAdminHandler()
+	function callHeaderInAdminHandler()
 	{
 		header('Refresh: ' . REDIRECT_TIME . ';' . REDIRECT . '');
 	};
-	function CallHeaderInUploadFormHandlerWithSuccessStatus()
+	function callHeaderInUploadFormHandlerWithSuccessStatus()
 	{
 		header('Refresh: ' . REDIRECT_TIME . ';' . STATUS_NUM_1 . '');
 	};
-	function CallHeaderInUploadFormHandlerWithBadStatus2()
+	function callHeaderInUploadFormHandlerWithBadStatus2()
 	{
 		header('Refresh: ' . REDIRECT_TIME . ';' . STATUS_NUM_2 . '');
 	};
-	function CallHeaderInUploadFormHandlerWithBadStatus3()
+	function callHeaderInUploadFormHandlerWithBadStatus3()
 	{
 		header('Refresh: ' . REDIRECT_TIME . ';' . STATUS_NUM_3 . '');
 	};
-	function CallHeaderInUploadFormHandlerWithBadStatus4()
+	function callHeaderInUploadFormHandlerWithBadStatus4()
 	{
 		header('Refresh: ' . REDIRECT_TIME . ';' . STATUS_NUM_4 . '');
 	};
-	function CallHeaderInUploadFormHandlerWithBadStatus6()
+	function callHeaderInUploadFormHandlerWithBadStatus6()
 	{
 		header('Refresh: ' . REDIRECT_TIME . ';' . STATUS_NUM_6 . '');
 	};
-	function CallHeaderInUploadFormHandlerWithBadStatus7()
+	function callHeaderInUploadFormHandlerWithBadStatus7()
 	{
 		header('Refresh: ' . REDIRECT_TIME . ';' . STATUS_NUM_7 . '');
 	};
-	function CallHeaderInUploadFormHandlerWithBadStatus8()
+	function callHeaderInUploadFormHandlerWithBadStatus8()
 	{
 		header('Refresh: ' . REDIRECT_TIME . ';' . STATUS_NUM_8 . '');
 	};
-	function CallHeaderInUploadFormHandlerWithBadStatusDefault()
+	function callHeaderInUploadFormHandlerWithBadStatusDefault()
 	{
 		header('Refresh: ' . REDIRECT_TIME . ';' . STATUS_DEFAULT . '');
 	};

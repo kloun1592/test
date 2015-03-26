@@ -12,13 +12,13 @@
             move_uploaded_file($tplPhotoName, UPLOAD_LOACTION . $photoName);
             $photoTitle = $_POST['photoTitle'];
             $photoDescription = $_POST['photoDescription'];
-            $db = @mysqli_connect(DBHOST, DBUSER, DBPASS, DBNAME) or die("Нет подключения к БД");
-            mysqli_set_charset($db, "utf8") or die("Не установлена кодировка соединения");
+            $db = @mysqli_connect(DBHOST, DBUSER, DBPASS, DBNAME) or die(NO_CONNECTION_TO_DB);
+            mysqli_set_charset($db, ENDCOING) or die(ENCODING_NOT_SET);
             echo savePhotoInDB($db, $photoTitle, $photoDescription, $photoName);
         } 
         else 
         {
-            CallHeaderInUploadFormHandlerWithBadStatus2();
+            callHeaderInUploadFormHandlerWithBadStatus2();
         };
     };
     function searchPhotoError()
@@ -27,65 +27,23 @@
         switch ($photoError) 
         {
             case 3:
-                CallHeaderInUploadFormHandlerWithBadStatus3();
+                callHeaderInUploadFormHandlerWithBadStatus3();
                 break;
             case 4:
-                CallHeaderInUploadFormHandlerWithBadStatus4();
+                callHeaderInUploadFormHandlerWithBadStatus4();
                 break;
             case 6:
-                CallHeaderInUploadFormHandlerWithBadStatus6();
+                callHeaderInUploadFormHandlerWithBadStatus6();
                 break;
             case 7:
-                CallHeaderInUploadFormHandlerWithBadStatus7();
+                callHeaderInUploadFormHandlerWithBadStatus7();
                 break;
             case 8:
-                CallHeaderInUploadFormHandlerWithBadStatus8();
+                callHeaderInUploadFormHandlerWithBadStatus8();
                 break;
             default:
-                CallHeaderInUploadFormHandlerWithBadStatusDefault();
+                callHeaderInUploadFormHandlerWithBadStatusDefault();
                 break;              
         };
         exit;
-    };
-    function tryShowUploadingStatus()
-    {
-        $status = ((empty($_GET['status'])) ? null : $_GET['status']);
-        return $status;
-    };
-    function checkValueInGetArray()
-    {
-        $h1GoodResultBegin = '<h1 class="resultGood">';
-        $h1End = '</h1>';
-        $h1BadResultBegin = '<h1 class="resultBad">';
-        switch ($_GET['status']) 
-        {
-            case 0:
-                $goodResult = '';
-                return $goodResult;
-                break;
-            case 1:
-                $result = '<h1 class="resultGood">' . FILE_UPLOAD_SUCCESS . '</h1>';
-                break;
-            case 2:
-                echo '<h1 class="resultBad">' . FILE_UPLOAD_FAILED . '</h1>';
-                break;
-            case 3:
-                echo '<h1 class="resultBad">' . ERROR_NUM3 . '</h1>';
-                break;
-            case 4:
-                echo '<h1 class="resultBad">' . ERROR_NUM4 . '</h1>';
-                break;
-            case 6:
-                echo '<h1 class="resultBad">' . ERROR_NUM6 . '</h1>';
-                break;
-            case 7:
-                echo '<h1 class="resultBad">' . ERROR_NUM7 . '</h1>';
-                break;
-            case 8:
-                echo '<h1 class="resultBad">' . ERROR_NUM8 . '</h1>';
-                break;
-            default:
-                echo '<h1 class="resultBad">' . UNKNOW_ERROR . '</h1>'; 
-        };
-        return $result;
     };

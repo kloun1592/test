@@ -1,10 +1,14 @@
 <?php
+    const ENDCOING = "utf8";
+    const UPLOAD_LOACTION =  "../web/upload/";
+    const NO_CONNECTION_TO_DB = "Нет подключения к БД";
+    const ENCODING_NOT_SET = "Не установлена кодировка соединения";
     const MAX_FILE_SIZE_ECHO = "Размер фото превышает три мегабайта";
     const FILE_UPLOAD_SUCCESS = "Фотография успешно загружена";
     const FILE_UPLOAD_FAILED = "Ошибка загрузки файла";
     const EMPTY_FILE = "Вы ничего не загрузили";
     const UNKNOWN_TYPE_OF_PHOTO = "Формат вашего изображения не поддерживется";
-    const REDIRECT = "url=../upload_not_verifed_photos.php";
+    const REDIRECT = "url=../admin_page.php";
     const STATUS_NUM_1 = "url=../index.php?status=1";
     const STATUS_NUM_2 = "url=../index.php?status=2";
     const STATUS_NUM_3 = "url=../index.php?status=3";
@@ -13,3 +17,14 @@
     const STATUS_NUM_7 = "url=../index.php?status=7";
     const STATUS_NUM_8 = "url=../index.php?status=8";
     const STATUS_DEFAULT = "url=../index.php?status=end";
+    const LIKE_STATUS = "1";
+    const DISLIKE_STATUS = "0";
+    const UNSUCCESS_DELETING_OR_EDITING_PHOTO_STATUS = "end";
+    const SUCCESS_ADDING_PHOTO_MSG = "Фотография успешно добавлена!";
+    const SUCCESS_DELETING_PHOTO_MSG = "Фотография успешно удалена!";
+    const UNSUCCESS_DELETING_OR_EDITING_PHOTO_MSG = "Что-то пошло не так...";
+    const UNSUCCESS_DELETING_OR_EDITING_PHOTO_IN_DB_MSG = "Не получилсоь, потому что произошла ошибка в этом месте : ";
+    const UNSUCCESS_SAVING_PHOTO_IN_DB = '  Не получилось добавить фотографию в базу данных. Попробуйте загрузить фотографию позже. Ошибка: ';
+    const PHOTO_NOT_UPLOADED = "Вы не загрузили фото.";
+    const ERROR = "Загрузка не удаалсь. Попробуйте загрузить позже.";
+    const DEFAULT_ERROR = "Загрузка не удалась из-за неожиданной проблемы сервера. Попробуйте загрузить позже.";

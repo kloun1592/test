@@ -14,7 +14,7 @@
 <head>
   <meta charset="UTF-8"/>
   <title>Галерея</title>
-  <link rel="stylesheet" href="web/main.css"/>
+  <link rel="stylesheet" href="web/styles.css"/>
 </head>
 <body>     
   <h1 class="waitingModeration">Галерея Йошкар-Олы</h1>

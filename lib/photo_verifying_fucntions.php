@@ -9,7 +9,8 @@
             exit;
         };
     };
-    function isValidFileType()
+    //Проверка на тип фото
+    /*function isValidFileType()
     {
         $photoType = $_FILES["photoUpload"]["type"] ;
         switch ($photoType) 
@@ -37,4 +38,4 @@
                 exit;
         };
         return $result;
-    };
+    };*/

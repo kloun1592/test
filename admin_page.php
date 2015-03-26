@@ -14,7 +14,7 @@
 <head>
   <meta charset="UTF-8"/>
   <title>Профиль админа</title>
-  <link rel="stylesheet" href="web/main.css"/>
+  <link rel="stylesheet" href="web/styles.css"/>
 </head>
 <body>     
   <h1 class="waitingModeration">Ожидает модерации</h1>
